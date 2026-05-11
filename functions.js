@@ -3,14 +3,14 @@ export function capitalize(str) {
 }
 
 export function reverseString(str) {
-    return str.split("").reverse().join("");
+    return String(str).split("").reverse().join("");
 }
 
 export const calculator = {
-    add: (a, b) => a + b,
-    subtract: (a, b) => a - b,
-    divide: (a, b) => a / b,
-    multiply: (a, b) => a * b,
+    add: (a, b) => parseFloat(a) + parseFloat(b),
+    subtract: (a, b) => parseFloat(a) - parseFloat(b),
+    divide: (a, b) => parseFloat(a) / parseFloat(b),
+    multiply: (a, b) => parseFloat(a) * parseFloat(b),
 }
 
 export function caesarCipher(plainText, key) {
@@ -27,8 +27,13 @@ export function caesarCipher(plainText, key) {
         return char;
     }
 
+    key = parseInt(key);
+    if (isNaN(key)) return null;
+
     let cipherText = "";
     let cipherChar = "";
+
+    plainText = String(plainText);
 
     for (let i = 0; i < plainText.length; i++) {
         cipherChar = String.fromCharCode(rotate(plainText.charCodeAt(i), key));
@@ -38,6 +43,9 @@ export function caesarCipher(plainText, key) {
 }
 
 export function analyzeArray(array) {
+    if (!Array.isArray(array)) return "Not an array";
+    if (!array.every(v => typeof v === "number")) return "Invalid array";
+
     const obj = {
         average: array.reduce((a, b) => a + b) / array.length,
         min: array.reduce((a, b) => a < b ? a : b),
