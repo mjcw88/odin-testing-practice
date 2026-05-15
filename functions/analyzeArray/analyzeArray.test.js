@@ -1,4 +1,4 @@
-import { analyzeArray } from "./analyze-array";
+import { analyzeArray } from "./analyzeArray";
 
 describe("analyze array", () => {
     test("returns the average number", () => {

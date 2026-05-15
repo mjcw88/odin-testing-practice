@@ -1,4 +1,4 @@
-import { caesarCipher } from "./caesar-cipher";
+import { caesarCipher } from "./caesarCipher";
 
 describe("caesar cipher", () => {
     test("'abc' with a key of 5 returns 'fgh'", () => {
