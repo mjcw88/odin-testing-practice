@@ -1,4 +1,4 @@
-import { reverseString } from "./reverse-string";
+import { reverseString } from "./reverseString";
 
 describe("reverseString", () => {
     test("'hello, world!' converts to '!dlrow ,olleh'", () => {
